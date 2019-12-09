@@ -30,5 +30,12 @@ function agregarTweet(e){
     console.log(tweet);
 }
 
+function borrarTweet(e){
+    e.preventDefault();
+    if(e.target.className === 'borrar-tweet'){
+        console.log(e.target.parentElement.remove());
+        alert('tweet Eliminado');
+    }
+}
 //
 
