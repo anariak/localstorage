@@ -27,23 +27,27 @@ function agregarTweet(e){
 
 function borrarTweet(e){
     e.preventDefault();
+    let tweets;
     if(e.target.className==='borrar-tweet'){
         console.log(e.target.value)
         console.log(e.target.parentElement.remove());
+        localStorage.removeItem(tweets);
     }
 }
 
 
 function setLocalStorage(tweet){
-    let tweets=[];
-    tweets = localStorageGetData();
-    tweets.push(tweet)
-    localStorage.setItem('tweets', tweet.push)
+    let tweets;
+    localStorage.setItem('tweets', tweet);
 }
 
-function localStorageGetData(){
+//Siempre comprobar si existe algun dato referente a lo que se trabaja en el local storge
+function obtenetTweetsLocalStorage(){
     let tweets;
-    if (localStorage.getItem === null){
-        tweets = []
+    if(localStorage.getItem('tweets')===null){
+        tweets = [];
+    }else{
+        tweets =JSON.parse(localStorage.getItem('tweets'));
     }
+    return tweets;
 }
