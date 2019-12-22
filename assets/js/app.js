@@ -5,7 +5,8 @@ escucha();
 function escucha (){
     //cuando se envia el formulario
     document.getElementById('formulario').addEventListener('submit', agregarTweet);
-    listTweets.addEventListener('click', borrarTweet)
+    listTweets.addEventListener('click', borrarTweet);
+    
 };
 
 
@@ -16,6 +17,7 @@ function agregarTweet(e){
     console.log(tweet)
     const li  = document.createElement('li');
     const X = document.createElement('a');
+    // crear atributos de lista LI
     X.className = 'borrar-tweet';
     X.innerText = 'X';
     li.innerText = tweet;
@@ -43,7 +45,7 @@ function setLocalStorage(tweet){
     //añadir un elemento al localstorage
    tweets.push(tweet);
    //convertir de string a arreglo para localstorage
-   localStorage.setItem('tweets', JSON.stringify(tweet : Number));
+   localStorage.setItem('tweets', JSON.stringify(tweets));
 
 }
 
