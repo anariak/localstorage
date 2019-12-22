@@ -31,23 +31,29 @@ function borrarTweet(e){
     if(e.target.className==='borrar-tweet'){
         console.log(e.target.value)
         console.log(e.target.parentElement.remove());
-        localStorage.removeItem(tweets);
+        alert ('tweet eliminado');
     }
 }
 
 
 function setLocalStorage(tweet){
-    let tweets;
-    localStorage.setItem('tweets', tweet);
+   let tweets;
+   //obtener todos los datos del arreglo ingresado al localstorage ya que evalua que si esta vacio devuelve un arreglo vacio sino ya puede devolver elementos mediante cadenas de caracteres
+   tweets = obtenetTweetsLocalStorage();
+    //añadir un elemento al localstorage
+   tweets.push(tweet);
+   //convertir de string a arreglo para localstorage
+   localStorage.setItem('tweets', JSON.stringify(tweet : Number));
+
 }
 
 //Siempre comprobar si existe algun dato referente a lo que se trabaja en el local storge
 function obtenetTweetsLocalStorage(){
     let tweets;
-    if(localStorage.getItem('tweets')===null){
+    if(localStorage.getItem('tweets') === null){
         tweets = [];
     }else{
-        tweets =JSON.parse(localStorage.getItem('tweets'));
+        tweets = JSON.parse(localStorage.getItem('tweets'));
     }
     return tweets;
 }
