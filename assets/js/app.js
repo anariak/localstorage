@@ -35,6 +35,7 @@ function borrarTweet(e){
     if(e.target.className==='borrar-tweet'){
         console.log(e.target.value)
         console.log(e.target.parentElement.remove());
+        borrarTweetLocalStorage(e.target.parentElement.innerText)
         alert ('tweet eliminado');
     }
 }
@@ -75,4 +76,14 @@ function LocalstorageCarga(){
     li.appendChild(X);
     listTweets.appendChild(li);
     }
+}
+//eliminar tweet desde Local Storage
+
+function borrarTweetLocalStorage(tweet){
+    let tweets;
+    let tweetsborrar;
+    console.log(tweet)
+    tweetsborrar = tweet.substring(0, tweet.length - 1); //borramos la X!
+
+    //substring toma 2 parametros 1° desde donde parte 2° hastadonde queremos que corte
 }
